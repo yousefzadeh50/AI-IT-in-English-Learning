@@ -1,1 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & IT in English Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card h2 {
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h2 i {
+            color: #fdbb2d;
+        }
+        
+        .card p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .ai-section {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .interactive-section {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+        
+        .ai-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .tool {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool i {
+            font-size: 2rem;
+            color: #1a2a6c;
+            margin-bottom: 10px;
+        }
+        
+        .chatbot {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 100%;
+        }
+        
+        .chatbot h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #1a2a6c;
+        }
+        
+        .chat-window {
+            height: 200px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            background: #f9f9f9;
+        }
+        
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background: #e3f2fd;
+            margin-left: auto;
+        }
+        
+        .bot-message {
+            background: #f5f5f5;
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        button {
+            background: #1a2a6c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #fdbb2d;
+            color: #333;
+        }
+        
+        .interactive-demo {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .demo-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .demo-box {
+            flex: 1;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f5f5f5;
+            text-align: center;
+        }
+        
+        .demo-box h4 {
+            margin-bottom: 15px;
+            color: #1a2a6c;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #1a2a6c, #fdbb2d);
+            width: 65%;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .ai-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI & IT in English Learning</h1>
+            <p class="tagline">Revolutionizing Language Education Through Technology</p>
+            <p>Interactive, Personalized, and Accessible Learning Experiences</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="card">
+                <h2><i class="fas fa-robot"></i> AI-Powered Learning</h2>
+                <p>Artificial Intelligence transforms English learning by providing personalized lessons tailored to your level, interests, and goals.</p>
+                <p>AI algorithms analyze your progress and adapt content to focus on areas that need improvement.</p>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <p>Personalized learning paths increase retention by up to 65% compared to traditional methods.</p>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-laptop-code"></i> Interactive Platforms</h2>
+                <p>Modern IT platforms make English learning engaging with games, videos, and real-time feedback.</p>
+                <p>Practice speaking with voice recognition, join virtual classrooms, and access materials anytime, anywhere.</p>
+                <div class="ai-tools">
+                    <div class="tool">
+                        <i class="fas fa-microphone-alt"></i>
+                        <p>Speech Recognition</p>
+                    </div>
+                    <div class="tool">
+                        <i class="fas fa-gamepad"></i>
+                        <p>Gamification</p>
+                    </div>
+                    <div class="tool">
+                        <i class="fas fa-video"></i>
+                        <p>Virtual Classes</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-section">
+                <div class="card">
+                    <h2><i class="fas fa-magic"></i> How AI Enhances Learning</h2>
+                    <p><strong>Adaptive Learning:</strong> AI systems adjust difficulty based on your performance, ensuring optimal challenge.</p>
+                    <p><strong>Instant Feedback:</strong> Get immediate corrections on pronunciation, grammar, and vocabulary.</p>
+                    <p><strong>Content Recommendation:</strong> AI suggests materials that match your interests and learning style.</p>
+                    <p><strong>Progress Analytics:</strong> Detailed insights into your strengths and areas for improvement.</p>
+                    
+                    <h3 style="margin-top: 20px;">Popular AI English Learning Tools</h3>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li>Duolingo - Adaptive language learning with AI</li>
+                        <li>Babbel - Personalized review sessions</li>
+                        <li>Elsa Speak - AI pronunciation coach</li>
+                        <li>Grammarly - AI writing assistant</li>
+                    </ul>
+                </div>
+                
+                <div class="chatbot">
+                    <h3>Practice with AI Assistant</h3>
+                    <div class="chat-window">
+                        <div class="message bot-message">Hello! I'm your AI English tutor. How can I help you today?</div>
+                        <div class="message user-message">I want to improve my pronunciation.</div>
+                        <div class="message bot-message">Great! Let's practice. Repeat after me: "She sells seashells by the seashore."</div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="Type your message here...">
+                        <button>Send</button>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: #666;">Try: "How do I use present perfect?"</p>
+                </div>
+            </div>
+            
+            <div class="interactive-section">
+                <div class="card">
+                    <h2><i class="fas fa-chart-line"></i> Benefits & Results</h2>
+                    <p>Studies show that technology-enhanced language learning leads to faster progress and higher motivation.</p>
+                    
+                    <div class="demo-container">
+                        <div class="demo-box">
+                            <h4>Traditional Learning</h4>
+                            <p>6-12 months for basic fluency</p>
+                            <p>Limited speaking practice</p>
+                            <p>Fixed curriculum</p>
+                        </div>
+                        <div class="demo-box">
+                            <h4>AI-Enhanced Learning</h4>
+                            <p>3-6 months for basic fluency</p>
+                            <p>Daily speaking practice</p>
+                            <p>Personalized path</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">Try This Pronunciation Tip</h3>
+                    <p>Record yourself saying "I want to improve my English" and compare with native speaker audio.</p>
+                    <button style="margin-top: 15px;"><i class="fas fa-microphone-alt"></i> Start Recording</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Created for an engaging presentation on AI & IT in English Language Learning</p>
+            <p>© 2023 Interactive Learning Demo</p>
+        </footer>
+    </div>
 
+    <script>
+        // Simple chatbot interaction
+        document.querySelector('button').addEventListener('click', function() {
+            const input = document.querySelector('input');
+            const message = input.value.trim();
+            
+            if (message) {
+                // Add user message
+                const chatWindow = document.querySelector('.chat-window');
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user-message';
+                userMessage.textContent = message;
+                chatWindow.appendChild(userMessage);
+                
+                // Clear input
+                input.value = '';
+                
+                // Simulate AI response after a delay
+                setTimeout(function() {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot-message';
+                    
+                    // Simple response logic
+                    if (message.toLowerCase().includes('pronunciation')) {
+                        botMessage.textContent = 'Pronunciation is key! Try using apps like Elsa Speak for instant feedback.';
+                    } else if (message.toLowerCase().includes('grammar')) {
+                        botMessage.textContent = 'Grammar can be tricky. I recommend focusing on one tense at a time.';
+                    } else if (message.toLowerCase().includes('vocabulary')) {
+                        botMessage.textContent = 'Building vocabulary? Try using flashcards with spaced repetition.';
+                    } else {
+                        botMessage.textContent = 'That\'s interesting! Can you tell me more about your English learning goals?';
+                    }
+                    
+                    chatWindow.appendChild(botMessage);
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+                }, 1000);
+            }
+        });
+        
+        // Allow pressing Enter to send message
+        document.querySelector('input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('button').click();
+            }
+        });
+        
+        // Recording button interaction
+        document.querySelectorAll('button')[1].addEventListener('click', function() {
+            alert('Recording started! Try saying: "I want to improve my English pronunciation."');
+        });
+    </script>
+</body>
+</html>
